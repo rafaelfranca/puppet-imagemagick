@@ -38,11 +38,12 @@ class Imagemagick < Formula
   option 'with-fontconfig', 'Compile with fontconfig support.'
   option 'without-freetype', 'Compile without freetype support.'
 
+  depends_on :libltdl
+
   depends_on 'pkg-config' => :build
 
   depends_on 'jpeg' => :recommended
   depends_on :libpng
-  depends_on :libtool
   depends_on :x11 if build.include? 'with-x'
   # Can't use => with symbol deps
   depends_on :fontconfig if build.include? 'with-fontconfig' or MacOS::X11.installed? # => :optional
